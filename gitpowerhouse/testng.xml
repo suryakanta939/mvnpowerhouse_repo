@@ -1,7 +1,7 @@
 <suite name="powerhouse suite">
 <test name="power house">
 <classes>
-<class name="com.powerhouse.testcases.ImageUpload"/>
+<class name="com.powerhouse.testcases.RegistrationAndLogin"/>
 </classes>
 </test>
 </suite>
