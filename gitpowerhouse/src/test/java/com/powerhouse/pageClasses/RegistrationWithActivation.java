@@ -20,6 +20,7 @@ public class RegistrationWithActivation {
     static ExtentTest test;
     static String mail=null;
    // String username="ipman1";
+    //checking through the git
     String Password="reset123";
     String baseUrl="https://pohostaging.com/";
     public RegistrationWithActivation(WebDriver driver,ExtentTest test){
