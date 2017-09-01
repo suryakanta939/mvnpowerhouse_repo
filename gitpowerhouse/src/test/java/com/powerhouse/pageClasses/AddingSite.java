@@ -103,7 +103,7 @@ public class AddingSite {
 	  test.log(LogStatus.INFO, "clicked on the  subDomain");
 	  subDomainSiteName().sendKeys("hulallo");
 	  test.log(LogStatus.INFO, "Added the subDomain Site Name");
-	  
+	  siteName().sendKeys("test");
 	  test.log(LogStatus.INFO, "Adding the default theme to the site");
 	  
 	  createSiteButton().click();

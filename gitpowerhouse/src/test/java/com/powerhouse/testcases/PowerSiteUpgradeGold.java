@@ -44,7 +44,7 @@ public class PowerSiteUpgradeGold {
   @Test
   public void f() throws InterruptedException {
 	  hp.loginToPowerHouse("arya1", "reset123");
-	  ug.clickOnGoldCart();
+	  ug.upgradegold();
   }
   
   
