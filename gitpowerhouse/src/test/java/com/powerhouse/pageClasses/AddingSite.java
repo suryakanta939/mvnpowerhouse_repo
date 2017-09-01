@@ -10,11 +10,11 @@ import org.openqa.selenium.support.ui.Select;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
-public class CreateSite {
+public class AddingSite {
   static WebElement element=null;
   static WebDriver driver=null;
   ExtentTest test;
-  public CreateSite(WebDriver driver,ExtentTest test){
+  public AddingSite(WebDriver driver,ExtentTest test){
 	  this.driver=driver;
 	  this.test=test;
   }
