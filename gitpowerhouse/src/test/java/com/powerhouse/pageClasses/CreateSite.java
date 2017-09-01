@@ -1,10 +1,14 @@
 package com.powerhouse.pageClasses;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
 import com.relevantcodes.extentreports.ExtentTest;
+import com.relevantcodes.extentreports.LogStatus;
 
 public class CreateSite {
   static WebElement element=null;
@@ -53,14 +57,58 @@ public class CreateSite {
 		 element=driver.findElement(By.id("add_network"));
 		 return element;
 	  }
-  
+  /*
+   * check the no of domain present in the select box
+   * 
+   * */
+  public static int noOfDomains(){
+	  Select sel=new Select(domainSelection());
+	  List<WebElement> opt=sel.getOptions();
+	  int domains=opt.size();
+	  return domains;
+  }
   /*
    * this is the function to create site by using the Domain
    * 
    * */
   public void createSiteByDomain(){
+	  siteTypeDomain().click();
+	  test.log(LogStatus.INFO, "checked the site type domain");
+	  if(noOfDomains()==1){
+		  System.out.println("you dont have any domains now ,Please Create Some domain Or "
+		  		+ " Choose The SubDomains To crate Site");
+	  }else{
+		  
+		  Select sel=new Select(domainSelection());
+		  List<WebElement> opt=sel.getOptions();
+		  opt.get(opt.size()-1).click();
+		  test.log(LogStatus.INFO, "one domain is selected");
+		  
+		  siteName().sendKeys("surya_site");
+		  test.log(LogStatus.INFO, "added one site name");
+		  
+		  test.log(LogStatus.INFO, "adding the default DIV");
+		  
+		 createSiteButton().click();
+		 test.log(LogStatus.INFO, "clciked on the create site");
+	  }
+	
+  }
+  /*
+   * This function is to create site by using the sub domain
+   * 
+   */
+  public void createSiteBySubDomain(){
+	  siteTypeSubDomain().click();
+	  test.log(LogStatus.INFO, "clicked on the  subDomain");
+	  subDomainSiteName().sendKeys("hulallo");
+	  test.log(LogStatus.INFO, "Added the subDomain Site Name");
+	  
+	  test.log(LogStatus.INFO, "Adding the default theme to the site");
+	  
+	  createSiteButton().click();
+	  test.log(LogStatus.INFO, "clicked the create site button");
 	  
   }
-  
   
 }
