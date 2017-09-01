@@ -8,14 +8,17 @@ import com.powerhouse.commonLib.ExplictyWait;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
-public class UpgradeGold {
+public class UpgradeGold  {
 
 	 static WebElement element=null;
 	 static WebDriver driver=null;
 	 static	ExtentTest test;
+	 PowersiteSubscription ps;
 	public UpgradeGold(WebDriver driver,ExtentTest test){
+		ps=new PowersiteSubscription(driver, test);
 		this.driver=driver;
 		this.test=test;
+		
 	}
 	public static WebElement bronzeFreeTrial(){
 		element=driver.findElement(By.xpath("//a[text()='PowerSite: Bronze (FREE TRIAL)']"));
@@ -36,16 +39,19 @@ public class UpgradeGold {
 	 * 
 	 * */
 	public void clickOnGoldCart() throws InterruptedException{
-		PowersiteSubscription.mousehoverOnMarketPlace();
+		ps.mousehoverOnMarketPlace();
 		test.log(LogStatus.INFO, "mouse hove on market place");
 		
 		 Thread.sleep(500);
-		 PowersiteSubscription.upgradeSubscription().click();
+		 ps.upgradeSubscription().click();
 		 test.log(LogStatus.INFO, "clicked on the upgradesubscription");
 		 
 		 PowersiteSubscription.goldAddToCart().click();
 		 test.log(LogStatus.INFO, "clicked on the add to cart of bronze");
 		 Thread.sleep(1500);
+		 
+		 ExplictyWait.waitForTheVisiilty(driver, 10, ps.goldMessage());
+		 
 		 
 	}
 	
