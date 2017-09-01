@@ -23,7 +23,7 @@ public class UpgradeGold  {
 		ps=new PowersiteSubscription(driver, test);
 		 as=new AddingSite(driver,test);
 		this.driver=driver;
-		this.test=test;
+		this.test=test; 
 		
 	}
 	public static WebElement bronzeFreeTrial(){
@@ -36,7 +36,7 @@ public class UpgradeGold  {
 		System.out.println(text);
 		bronzeFreeTrial().click();
 	}
-	
+	 
 	public static void clickOnAddToCart(){
 		driver.findElement(By.xpath("//button[contains(text(),'Add To Cart')]")).click();
 	}
