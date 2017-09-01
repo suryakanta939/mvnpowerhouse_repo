@@ -1,8 +1,11 @@
 package com.powerhouse.pageClasses;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
 import com.powerhouse.commonLib.ExplictyWait;
 import com.relevantcodes.extentreports.ExtentTest;
@@ -46,14 +49,42 @@ public class UpgradeGold  {
 		 ps.upgradeSubscription().click();
 		 test.log(LogStatus.INFO, "clicked on the upgradesubscription");
 		 
-		 PowersiteSubscription.goldAddToCart().click();
+		 ps.goldAddToCart().click();
 		 test.log(LogStatus.INFO, "clicked on the add to cart of bronze");
 		 Thread.sleep(1500);
 		 
 		 ExplictyWait.waitForTheVisiilty(driver, 10, ps.goldMessage());
-		 
+		 System.out.println(ps.goldMessage().getText());
 		 
 	}
+	/*
+	 * selecting the sites
+	 * */
+	public static WebElement selectSite(){
+		element=driver.findElement(By.id("woo_field_site']"));
+		return element;
+	}
 	
+	public static WebElement clcikTocreateSiteMessage(){
+		element=driver.findElement(By.xpath("//li[contains(text(),'apply this subscription or if you have not created ')]"));
+		return element;
+	}
 	
+	public static WebElement clcikTocreateSite(){
+		element=driver.findElement(By.xpath("//a[text()='click here']"));
+		return element;
+	}
+	public static int noOfSitePresent(){
+		Select sel=new Select(selectSite());
+		List<WebElement> options=sel.getOptions();
+		int noOfSite=options.size();
+		return noOfSite;
+	}
+	
+	public void selectingSite(){
+		if(noOfSitePresent()==1 && clcikTocreateSiteMessage().isDisplayed()){
+			clcikTocreateSite().click();
+			
+		}
+	}
 }
