@@ -7,6 +7,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
+import com.powerhouse.commonLib.RandomNames;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
@@ -14,7 +15,9 @@ public class AddingSite {
   static WebElement element=null;
   static WebDriver driver=null;
   ExtentTest test;
+  RandomNames rn=null;
   public AddingSite(WebDriver driver,ExtentTest test){
+	  rn=new RandomNames();
 	  this.driver=driver;
 	  this.test=test;
   }
@@ -101,9 +104,11 @@ public class AddingSite {
   public void createSiteBySubDomain(){
 	  siteTypeSubDomain().click();
 	  test.log(LogStatus.INFO, "clicked on the  subDomain");
-	  subDomainSiteName().sendKeys("hulallo");
+	  String siteDomainName=rn.name();
+	  subDomainSiteName().sendKeys(siteDomainName);
 	  test.log(LogStatus.INFO, "Added the subDomain Site Name");
-	  siteName().sendKeys("test");
+	  String siteName=rn.name();
+	  siteName().sendKeys(siteName);
 	  test.log(LogStatus.INFO, "Adding the default theme to the site");
 	  
 	  createSiteButton().click();
