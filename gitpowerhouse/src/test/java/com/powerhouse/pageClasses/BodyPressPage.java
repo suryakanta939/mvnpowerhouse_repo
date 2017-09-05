@@ -47,7 +47,7 @@ public class BodyPressPage {
   }
   
   public void uploadImage() throws IOException{
-	  Runtime.getRuntime().exec("C:\\Users\\ad\\Desktop\\powerhouseimage.exe");
+	  Runtime.getRuntime().exec("C:\\Users\\User\\Desktop\\powerhouseimage.exe");
   }
   /*
    * this is the function to upload cover image
