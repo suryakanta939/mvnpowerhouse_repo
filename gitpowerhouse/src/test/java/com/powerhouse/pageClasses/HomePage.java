@@ -49,7 +49,7 @@ public class HomePage {
     //check here i changed the xpath
     //and agian i changed
     public static WebElement registrationfromusername(){
-      element=driver.findElement(By.id("reg-name"));
+      element=driver.findElement(By.id("reg-name\\"));
     	return element;
     }
     public static WebElement email(){
