@@ -134,7 +134,6 @@ public class MultipleRegistration {
 		for(int j=0;j<6;j++){
 			Cell cell=rw.getCell(j);
 			cell.setCellType(Cell.CELL_TYPE_STRING);   //This is for any type value from excel
-
 				 String data=rw.getCell(j).getStringCellValue();
 				  obj[i][j]=data;
 			}

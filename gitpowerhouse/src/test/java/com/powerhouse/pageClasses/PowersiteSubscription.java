@@ -60,6 +60,7 @@ public class PowersiteSubscription {
 		element=driver.findElement(By.xpath("//h1[text()='PowerSite Upgrade: Gold']"));
 		return element;
 	}
+	
 	/*mouse hover marketplace*/
 	public static void mousehoverOnMarketPlace(){
 		ExplictyWait.waitForTheVisiilty(driver, 10, marketplace());
