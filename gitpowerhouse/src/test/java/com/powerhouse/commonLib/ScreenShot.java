@@ -11,8 +11,8 @@ import org.openqa.selenium.support.events.EventFiringWebDriver;
 public class ScreenShot {
 	
 	public static void takeScreenShot(WebDriver driver,String fileName) throws IOException{
-		File f=new File("src\\test\\java\\");
-		  File fs=new File(f,"screenShot");
+		File f=new File("screenShot");
+		  File fs=new File(f,"");
 		  System.out.println(fs.getAbsolutePath());
 		EventFiringWebDriver eDriver=new EventFiringWebDriver(driver);
 		File srcFile=eDriver.getScreenshotAs(OutputType.FILE);
