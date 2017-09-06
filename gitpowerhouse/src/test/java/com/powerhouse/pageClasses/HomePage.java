@@ -47,7 +47,7 @@ public class HomePage {
      * 
      * filling the registration form*/
     public static WebElement registrationfromusername(){
-      element=driver.findElement(By.id("reg-name"));
+      element=driver.findElement(By.id("reg-name\\"));
     	return element;
     }
     public static WebElement email(){
