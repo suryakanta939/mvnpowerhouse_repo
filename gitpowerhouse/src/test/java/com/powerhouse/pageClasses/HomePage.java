@@ -46,6 +46,7 @@ public class HomePage {
     /*elements for 
      * 
      * filling the registration form*/
+    //check here i changed the xpath
     public static WebElement registrationfromusername(){
       element=driver.findElement(By.id("reg-name"));
     	return element;
