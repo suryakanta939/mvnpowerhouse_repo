@@ -1,6 +1,9 @@
 package com.powerhouse.testcases;
 
+import java.io.File;
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -8,6 +11,8 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
@@ -35,12 +40,23 @@ public class RegistrationAndLogin {
 	RegistrationWithActivation ra;
  
   @BeforeClass
-  public void beforeClass() {
+  public void beforeClass() throws MalformedURLException {
+//	  URL server = new URL("http://127.0.0.1:7055/wd/hub");
+//	  DesiredCapabilities capabilities = new DesiredCapabilities();
+//	    capabilities.setBrowserName("firefox");
+//	 
+//	    System.out.println("Connecting to " + server);
+//	 
+//	     driver = new RemoteWebDriver(server, capabilities);
+	 File f=new File("src/test/java");
+	 File fs=new File(f,"geckodriver.exe");
+	 System.out.println(fs.getAbsolutePath());
+	 System.setProperty("webdriver.gecko.driver", fs.getAbsolutePath());
 	  report=ExtentFactory.getInstancce();
 	  test=report.startTest("RegistrationAndLogin");
-	  driver=new FirefoxDriver();
+	 driver=new FirefoxDriver();
 	  test.log(LogStatus.INFO, "browser opened");
-	//  driver.get(mailurl);
+	  driver.get(mailurl);
 	  test.log(LogStatus.INFO, "url is entered");
 	  hp=new HomePage(driver, test);
 	  ra=new RegistrationWithActivation(driver, test);

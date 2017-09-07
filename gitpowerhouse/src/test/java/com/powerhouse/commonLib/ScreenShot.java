@@ -8,6 +8,10 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 
+
+
+
+
 public class ScreenShot {
 	
 	public static void takeScreenShot(WebDriver driver,String fileName) throws IOException{
