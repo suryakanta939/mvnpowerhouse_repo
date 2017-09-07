@@ -41,17 +41,11 @@ public class RegistrationAndLogin {
  
   @BeforeClass
   public void beforeClass() throws MalformedURLException {
-//	  URL server = new URL("http://127.0.0.1:7055/wd/hub");
-//	  DesiredCapabilities capabilities = new DesiredCapabilities();
-//	    capabilities.setBrowserName("firefox");
-//	 
-//	    System.out.println("Connecting to " + server);
-//	 
-//	     driver = new RemoteWebDriver(server, capabilities);
-	 File f=new File("src/test/java");
-	 File fs=new File(f,"geckodriver.exe");
-	 System.out.println(fs.getAbsolutePath());
-	 System.setProperty("webdriver.gecko.driver", fs.getAbsolutePath());
+
+//	 File f=new File("src/test/java");
+//	 File fs=new File(f,"geckodriver.exe");
+//	 System.out.println(fs.getAbsolutePath());
+//	System.setProperty("webdriver.gecko.driver", fs.getAbsolutePath());
 	  report=ExtentFactory.getInstancce();
 	  test=report.startTest("RegistrationAndLogin");
 	 driver=new FirefoxDriver();
