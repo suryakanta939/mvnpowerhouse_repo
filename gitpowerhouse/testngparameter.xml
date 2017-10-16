@@ -1,0 +1,44 @@
+<suite name="Parallel Tests"  parallel="tests" thread-count="4">
+<test name="power house with firefox">
+
+<parameters>
+<parameter name="browser" value="chrome"/>
+</parameters>
+
+<classes>
+<class name="com.powerhouse.testcases.ActiveCampaignPurchase"/>
+</classes>
+</test>
+
+ <test name="power house PurchasePowersiteSubscription purchase">
+ <parameters>
+<parameter name="browser" value="chrome"/>
+</parameters>
+ 
+<classes>
+<class name="com.powerhouse.testcases.PurchasePowersiteSubscription"/>
+</classes>
+</test>
+
+
+<test name="power house PowerSiteUpgradeGold">
+<parameters>
+<parameter name="browser" value="chrome"/>
+</parameters>
+
+<classes>
+<class name="com.powerhouse.testcases.PowerSiteUpgradeGold"/>
+</classes>
+</test>
+
+<test name="power house LoginWithDifferentOption">
+<parameters>
+<parameter name="browser" value="chrome"/>
+</parameters>
+
+<classes>
+<class name="com.powerhouse.testcases.LoginWithDifferentOption"/>
+</classes>
+</test>
+ 
+</suite>

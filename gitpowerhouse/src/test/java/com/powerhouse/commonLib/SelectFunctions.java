@@ -22,7 +22,7 @@ public class SelectFunctions {
  public static void showAlltheElements(WebElement element){
 	 Select sel=new Select(element);
 	 List<WebElement> allAvailabeleOptions=sel.getOptions();
-	 System.out.println("The Total No Of Elements present is "+allAvailabeleOptions);
+	 System.out.println("The Total No Of Elements present are "+allAvailabeleOptions.size());
 	 for(int i=0;i<allAvailabeleOptions.size();i++){
 		 String texts=allAvailabeleOptions.get(i).getText();
 		 System.out.println(texts);

@@ -27,12 +27,14 @@ public class CopyOfcheckOut {
      * This function is to filling up the visa details
      * */
   public void fillingUpVisaDetails() throws InterruptedException{
+	  clearCardDetails();
 	  for(int i=0;i<4;i++){
 	  driver.findElement(By.id("stripe-card-number")).sendKeys("4242");
 	  }
 	  for(int i=0;i<2;i++){
 		  if(i==0){
 	  driver.findElement(By.id("stripe-card-expiry")).sendKeys("11");
+	  Thread.sleep(500);
 		  }else{
 			  driver.findElement(By.id("stripe-card-expiry")).sendKeys("27");
 		  }
@@ -58,7 +60,7 @@ public class CopyOfcheckOut {
 	  List<WebElement> options=driver.findElements(By.xpath("//input[@name='wc-stripe-payment-token']"));
 	 System.out.println("Total no of Options You have is "+options.size());
 	 if(options.size()==1){
-		 /*fill the vissa details*/
+		 /*fill up the visa details*/
 		 fillingUpVisaDetails();
 		 
 	 }
@@ -152,4 +154,10 @@ public class CopyOfcheckOut {
     	
     	
    }
+    public void clearCardDetails(){
+    	driver.findElement(By.id("stripe-card-number")).clear();
+    	driver.findElement(By.id("stripe-card-expiry")).clear();
+    	driver.findElement(By.id("stripe-card-cvc")).clear();
+    	
+    }
 }

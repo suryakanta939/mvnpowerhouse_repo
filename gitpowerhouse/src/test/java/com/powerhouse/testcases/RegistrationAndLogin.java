@@ -7,6 +7,7 @@ import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -41,6 +42,11 @@ public class RegistrationAndLogin {
  
   @BeforeClass
   public void beforeClass() throws MalformedURLException {
+//	  DesiredCapabilities capability = DesiredCapabilities.firefox();
+//      driver = new RemoteWebDriver(new URL("http://127.0.0.1:7055/wd/hub"), capability);
+//      driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+//      driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
+//      driver.manage().window().setSize(new Dimension(1920, 1080));
 
 //	 File f=new File("src/test/java");
 //	 File fs=new File(f,"geckodriver.exe");

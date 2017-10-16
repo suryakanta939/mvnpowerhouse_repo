@@ -3,6 +3,7 @@ package com.powerhouse.testcases;
 import org.testng.annotations.Test;
 
 import com.powerhouse.commonLib.ExtentFactory;
+import com.powerhouse.pageClasses.Active_camp;
 import com.powerhouse.pageClasses.HomePage;
 import com.powerhouse.pageClasses.RegistrationWithActivation;
 import com.powerhouse.pageClasses.UpgradeGold;
@@ -11,9 +12,15 @@ import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
+
+import java.io.File;
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterClass;
 
@@ -24,33 +31,37 @@ public class PowerSiteUpgradeGold {
 	String baseUrl="https://pohostaging.com/";
 	HomePage hp;
 	UpgradeGold ug;
-	@BeforeClass
-	  public void beforeClass() {
+	@Parameters({"browser"})
+	@BeforeClass(alwaysRun = true)
+	public void setUp(String browser){
+		File f=new File("Drivers");
+		File fs=new File(f,"chromedriver.exe");
+		System.out.println(fs.getAbsolutePath());
 		report=ExtentFactory.getInstancce();
-		  test=report.startTest("PowerSiteUpgradeGold");
-		  driver=new FirefoxDriver();
-		  test.log(LogStatus.INFO, "browser opened");
+		test=report.startTest("active campaign purchage");
+		if(browser.equals("firefox")){
+			driver=new FirefoxDriver();
+		}else if(browser.equals("chrome")){
+			System.setProperty("webdriver.chrome.driver", fs.getAbsolutePath());
+			driver=new ChromeDriver();
+		}
+		hp=new HomePage(driver, test);
+		  ug=new UpgradeGold(driver, test);
 		 driver.get(baseUrl);
 		  test.log(LogStatus.INFO, "url is entered");
-		  hp=new HomePage(driver, test);
-		  ug=new UpgradeGold(driver, test);
+		  
 		  driver.manage().window().maximize();
+		  driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 	  }
 	
-//  @BeforeMethod
-//  public void beforeMethod() {
-//  }
   
   @Test
   public void f() throws InterruptedException {
-	  hp.loginToPowerHouse("arya1", "reset123");
+	  hp.logInWithGoogle("suryakanta@abacies.com", "8867117363");
+	  Thread.sleep(2000);
 	  ug.upgradegold();
   }
   
-  
-//  @AfterMethod
-//  public void afterMethod() {
-//  }
 
   @AfterClass
   public void afterClass() {

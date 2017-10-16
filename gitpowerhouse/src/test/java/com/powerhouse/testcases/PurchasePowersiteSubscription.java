@@ -1,5 +1,6 @@
 package com.powerhouse.testcases;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -14,6 +15,7 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.ITestResult;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.AfterClass;
@@ -22,6 +24,7 @@ import com.powerhouse.commonLib.ExtentFactory;
 import com.powerhouse.commonLib.ScreenShot;
 import com.powerhouse.pageClasses.HomePage;
 import com.powerhouse.pageClasses.PowersiteSubscription;
+import com.powerhouse.pageClasses.UpgradeGold;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
@@ -36,8 +39,9 @@ public class PurchasePowersiteSubscription {
 	ExtentTest test;
 	HomePage hp;
 	PowersiteSubscription ps;
-	@BeforeClass
-	  public void beforeClass() throws InterruptedException, MalformedURLException
+	@Parameters({"browser"})
+	@BeforeClass(alwaysRun = true)
+	  public void beforeClass(String browser) throws InterruptedException, MalformedURLException
 	  {
 //		 DesiredCapabilities caps = DesiredCapabilities.chrome();
 //		    caps.setCapability("browser_version", "60");
@@ -51,14 +55,23 @@ public class PurchasePowersiteSubscription {
 		/*
 		 * setting the extent reports
 		 * */
+		File f=new File("Drivers");
+		File fs=new File(f,"chromedriver.exe");
+		System.out.println(fs.getAbsolutePath());
 		report=ExtentFactory.getInstancce();
-		test=report.startTest("powerhouse registration");
-		/*open the browser and hit the url*/
-	driver=new FirefoxDriver();
-		// driver=new ChromeDriver();
+		test=report.startTest("active campaign purchage");
+		if(browser.equals("firefox")){
+			driver=new FirefoxDriver();
+			hp=new HomePage(driver, test);
+			ps=new PowersiteSubscription(driver, test);
+		}else if(browser.equals("chrome")){
+			System.setProperty("webdriver.chrome.driver", fs.getAbsolutePath());
+			driver=new ChromeDriver();
+			hp=new HomePage(driver, test);
+			ps=new PowersiteSubscription(driver, test);
+		}
 		test.log(LogStatus.INFO, "browser is opened");
-		hp=new HomePage(driver, test);
-		ps=new PowersiteSubscription(driver, test);
+		
 		driver.get(BaseUrl);
 		test.log(LogStatus.INFO, "entered the powerhouse URL");
 		driver.manage().window().maximize();
@@ -70,7 +83,7 @@ public class PurchasePowersiteSubscription {
   
   @BeforeMethod
   public void beforeMethod() throws InterruptedException {
-	  hp.loginToPowerHouse("raman28", "reset131");
+	 hp.logInWithGoogle("suryakanta@abacies.com", "8867117363");
 	  Thread.sleep(2000);
 	  test.log(LogStatus.INFO, "loggged in to the powerhouse");
   }

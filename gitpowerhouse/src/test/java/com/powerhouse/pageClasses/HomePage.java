@@ -18,6 +18,7 @@ public class HomePage {
     public HomePage(WebDriver driver,ExtentTest test){
     	this.driver=driver;
     	this.test=test;
+  
     }
     
     public static WebElement dashBoard(){
@@ -202,6 +203,87 @@ public class HomePage {
        	 driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     	}
     }
+    public static WebElement loginGoogle(){
+   	 element=driver.findElement(By.xpath("//a[@class='btn btn-default glogin-btn']"));
+   	 return element;
+    }
     
+    public static WebElement googleEmail(){
+   	  element=driver.findElement(By.xpath("//input[@type='email']"));
+   	  return element;
+    }
+    
+    public static WebElement next(){
+  	  element=driver.findElement(By.xpath("//span[text()='Next']"));
+  	  return element;
+   }
+    
+    public static WebElement googlePassWord(){
+  	  element=driver.findElement(By.xpath("//input[@type='password']"));
+  	  return element;
+   }
+    
+    public void logInWithGoogle(String userName,String passWord) throws InterruptedException{
+   	 loginGoogle().click();
+   	 ExplictyWait.waitForTheVisiilty(driver, 15, googleEmail());
+   	googleEmail().sendKeys(userName);
+   	 next().click();
+   	 Thread.sleep(3000);
+   	// ExplictyWait.waitForTheVisiilty(driver, 10, passWord());
+   	googlePassWord().sendKeys(passWord);
+   	 next().click();
+    }
+    
+   /*This elements are to use
+    * for the facebook login
+    * */ 
+    
+    public static WebElement logInfacebook(){
+   	 element=driver.findElement(By.xpath("//a[@class='btn btn-default facebook-btn']"));
+   	 return element;
+    }
+    
+    public static WebElement faceBookEmail(){
+   	 element=driver.findElement(By.id("email"));
+   	 return element;
+    }
+    
+    public static WebElement faceBookPass(){
+   	 element=driver.findElement(By.id("pass"));
+   	 return element;
+    }
+    
+    public static WebElement faceBookloginButton(){
+   	 element=driver.findElement(By.id("loginbutton"));
+   	 return element;
+    }
+    
+    public static WebElement faceBookText(){
+   	 element=driver.findElement(By.xpath("//span[text()='Log in to Facebook']"));
+   	 return element;
+    }
+    
+    public void loginWithFaceBook(String userName,String passWord){
+   	 logInfacebook().click();
+   	 ExplictyWait.waitForTheVisiilty(driver, 15, faceBookText());
+   	 faceBookEmail().sendKeys(userName);
+   	 faceBookPass().sendKeys(passWord);
+   	 faceBookloginButton().click();
+    }
+    
+   /*
+    * this function is to log out from the power house
+    * */
+    
+    public static WebElement logOut(){
+    	element=driver.findElement(By.xpath("//i[@class='fa fa-sign-out']"));
+    	return element;
+    }
+    
+    public void logOutFromPowerHouse(){
+    		logOut().click();
+    
+    	
+    }
     
 }

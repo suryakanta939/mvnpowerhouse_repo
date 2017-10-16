@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
@@ -39,6 +40,15 @@ public class UpgradeGold  {
 	 
 	public static void clickOnAddToCart(){
 		driver.findElement(By.xpath("//button[contains(text(),'Add To Cart')]")).click();
+	}
+	
+	public static WebElement viewCart(){
+		 element=driver.findElement(By.xpath("//a[text()='View cart']"));
+		 return element;
+	}
+	
+	public static void clickOnviewCart(){
+		viewCart().click();
 	}
 	/*
 	 * this function is to click on the gold addto cart
@@ -119,5 +129,22 @@ public class UpgradeGold  {
 		test.log(LogStatus.INFO, "clicked on the gold add to cart");
 		selectingSite();
 		test.log(LogStatus.INFO, "selected the site");
+		clickOnAddToCart();
+		test.log(LogStatus.INFO, "clicked on the add to cart");
+		ExplictyWait.waitForTheVisiilty(driver, 10, viewCart());
+		clickOnviewCart();
+		test.log(LogStatus.INFO, "clicked on the view cart");
+		
+		 Thread.sleep(1500);
+		 ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", ps.proceedToCheckOut());
+		 
+		 ps.proceedToCheckOut().click();
+		 
+		 driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
+		 CopyOfcheckOut ch=new CopyOfcheckOut(driver, test);
+		 ch.billingDetails();
+		 
+		
 	}
 }

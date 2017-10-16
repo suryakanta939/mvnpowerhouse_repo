@@ -11,9 +11,9 @@ public class ActionFunctions {
 		Actions act=new Actions(driver);
 		act.moveToElement(element).perform();
 	}
-	public static void dragAndDrop(WebDriver driver,WebElement srcelement,WebElement dstelement){
+	public static void dragAndDrop(WebDriver driver,WebElement srcElement,WebElement dstelement){
 		Actions act=new Actions(driver);
-		act.clickAndHold(srcelement).perform();
+		act.clickAndHold(srcElement).perform();
 		act.moveToElement(dstelement).perform();
 		act.release().perform();
 	}

@@ -1,7 +1,27 @@
-<suite name="powerhouse suite">
-<test name="power house">
+<suite name="Parallel Tests" verbose="1" thread-count="2" parallel="tests">
+<test name="power house with firefox">
+
+<parameters>
+<parameter name="browser" value="firefox"/>
+</parameters>
+
 <classes>
-<class name="com.powerhouse.testcases.RegistrationAndLogin"/>
+
+<class name="com.powerhouse.testcases.LoginWithDifferentOption"/>
 </classes>
 </test>
+
+<test name="power house testcases with chrome">
+
+<parameters>
+<parameter name="browser" value="chrome"/>
+</parameters>
+
+<classes>
+
+<class name="com.powerhouse.testcases.LoginWithDifferentOption"/>
+</classes>
+</test>
+
+
 </suite>
