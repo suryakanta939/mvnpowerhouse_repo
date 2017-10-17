@@ -143,9 +143,32 @@ public class Active_camp {
 	  
   }
   
+  /*****************************************/
+  
+  //These functions are to check the active campaign widget
   
   
+  public static WebElement adminDashboard(){
+	  element=driver.findElement(By.xpath("//a[text()='Admin Dashboard']"));
+	  return element;
+  }
   
   
+  public static WebElement activeCampaignWidget(){
+	  element=driver.findElement(By.xpath("//h3[text()='ActiveCampaign']"));
+	  return element;
+  }
 
+  
+  public void checkActiveCampaignWidget(){
+	
+	  adminDashboard().click();
+	  test.log(LogStatus.INFO, "clicked on the admin dash board");
+	  
+	  ExplictyWait.waitForTheVisiilty(driver, 15, activeCampaignWidget());
+	  test.log(LogStatus.INFO, "waited for the visible of the element");
+	  
+	  activeCampaignWidget().click();
+	  test.log(LogStatus.INFO, "click on the activecampaign widget");
+  }
 }
