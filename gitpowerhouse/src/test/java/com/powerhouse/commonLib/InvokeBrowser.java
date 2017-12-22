@@ -17,7 +17,7 @@ public class InvokeBrowser {
    public  static WebDriver runBrowser(String browserName){
 	   if(browserName.equalsIgnoreCase("firefox")){
 		   driver=new FirefoxDriver();
-		   return driver;
+		   
 	   }
 	
 	  else if(browserName.equalsIgnoreCase("chrome")){
@@ -26,7 +26,7 @@ public class InvokeBrowser {
 		   System.out.println(fs.getAbsolutePath());
 		   System.setProperty("webdriver.chrome.driver", fs.getAbsolutePath());
 		   driver=new ChromeDriver();
-		   return driver;
+		   
 	   }
 	   return driver;
    }
