@@ -65,7 +65,7 @@ public class PurchasePowersiteSubscription {
 			hp=new HomePage(driver, test);
 			ps=new PowersiteSubscription(driver, test);
 		}else if(browser.equals("chrome")){
-			System.setProperty("webdriver.chrome.driver", fs.getAbsolutePath());
+			System.setProperty("webdriver.chrome.driver", "D:\\Softwares\\chromedriver.exe");
 			driver=new ChromeDriver();
 			hp=new HomePage(driver, test);
 			ps=new PowersiteSubscription(driver, test);
@@ -83,7 +83,7 @@ public class PurchasePowersiteSubscription {
   
   @BeforeMethod
   public void beforeMethod() throws InterruptedException {
-	 hp.logInWithGoogle("suryakanta@abacies.com", "8867117363");
+	 hp.logInWithGoogle("suryakanta@abacies.com", "9066549823");
 	  Thread.sleep(2000);
 	  test.log(LogStatus.INFO, "loggged in to the powerhouse");
   }

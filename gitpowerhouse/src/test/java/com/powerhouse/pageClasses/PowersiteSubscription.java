@@ -17,6 +17,7 @@ public class PowersiteSubscription {
 	static WebElement element=null;
 	static WebDriver driver=null;
 	ExtentTest test;
+	boolean status;
 	public PowersiteSubscription(WebDriver driver,ExtentTest test){
 		this.driver=driver;
 		this.test=test;
@@ -67,6 +68,30 @@ public class PowersiteSubscription {
 		ActionFunctions.mouserOverOperation(driver, marketplace());
 	
 	}
+	
+	/*check for active message*/
+	public static WebElement statusMessage(){
+		element=driver.findElement(By.xpath("//td[contains(text(),'Active')]"));
+		return element;
+	}
+	public static String status(){
+		String message=statusMessage().getText();
+		return message;
+	}
+	
+	public  Boolean checkStatus() throws InterruptedException{
+		 while(true){
+			 try{
+				 if(status().equals("Active")){
+					 System.out.println("status is "+ status());
+				 }
+				 return status=true;
+			 }catch(Throwable t){
+				 Thread.sleep(1000);
+			 }
+		 }
+	}
+	
 	 public void purchaseBronze() throws InterruptedException{
 		 mousehoverOnMarketPlace();
 		 test.log(LogStatus.INFO, "mouse over on the marketplace");
@@ -93,6 +118,7 @@ public class PowersiteSubscription {
 		 CopyOfcheckOut ch=new CopyOfcheckOut(driver, test);
 		 ch.billingDetails();
 		 
+		
 		 
 	 }
 	

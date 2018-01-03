@@ -35,7 +35,7 @@ public class RegistrationAndLogin {
 	WebDriver driver;
 	ExtentReports  report;
 	ExtentTest test;
-	String baseUrl="https://pohostaging.com/";
+	String baseUrl="https://app.pohostaging.com/";
 	String mailurl="https://10minutemail.net/";
 	HomePage hp;
 	RegistrationWithActivation ra;

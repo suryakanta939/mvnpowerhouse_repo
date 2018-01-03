@@ -42,7 +42,7 @@ public class PowerSiteUpgradeGold {
 		if(browser.equals("firefox")){
 			driver=new FirefoxDriver();
 		}else if(browser.equals("chrome")){
-			System.setProperty("webdriver.chrome.driver", fs.getAbsolutePath());
+			System.setProperty("webdriver.chrome.driver","D:\\Softwares\\chromedriver.exe");
 			driver=new ChromeDriver();
 		}
 		hp=new HomePage(driver, test);
@@ -57,7 +57,7 @@ public class PowerSiteUpgradeGold {
   
   @Test
   public void f() throws InterruptedException {
-	  hp.logInWithGoogle("suryakanta@abacies.com", "8867117363");
+	  hp.logInWithGoogle("suryakanta@abacies.com", "9066549823");
 	  Thread.sleep(2000);
 	  ug.upgradegold();
   }

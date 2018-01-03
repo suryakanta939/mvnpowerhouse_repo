@@ -44,7 +44,7 @@ public class ActiveCampaignPurchase {
 			driver=new FirefoxDriver();
 			
 		}else if(browser.equals("chrome")){
-			System.setProperty("webdriver.chrome.driver", fs.getAbsolutePath());
+			System.setProperty("webdriver.chrome.driver", "D:\\Softwares\\chromedriver.exe");
 			driver=new ChromeDriver();
 		}
 		hp=new HomePage(driver, test);
@@ -61,7 +61,7 @@ public class ActiveCampaignPurchase {
   @Test
   public void f() throws InterruptedException 
   {
-	// hp.loginWithFaceBook("surya.east09@gmail.com", "45345");
+	 hp.loginWithFaceBook("surya.east09@gmail.com", "suryakanta939");
 	 // hp.logInWithGoogle("ashwini@abacies.com", "32353");
 	  Thread.sleep(3000);
 	  ac.adminDashboard().click();

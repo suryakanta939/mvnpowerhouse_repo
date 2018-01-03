@@ -22,7 +22,7 @@ public class RegistrationWithActivation {
    // String username="ipman1";
     //checking through the git
     String Password="reset123";
-    String baseUrl="https://pohostaging.com/";
+    String baseUrl="https://app.pohostaging.com/";
     public RegistrationWithActivation(WebDriver driver,ExtentTest test){
     	this.driver=driver;
     	this.test=test;

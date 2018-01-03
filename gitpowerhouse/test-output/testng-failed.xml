@@ -1,122 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite thread-count="4" name="Failed suite [Parallel Tests]" parallel="tests">
-  <parameter name="browser" value="chrome"/>
-  <test name="power house with firefox(failed)" parallel="tests">
-    <parameter name="browser" value="chrome"/>
+<suite name="Failed suite [Default suite]">
+  <test name="Default test(failed)">
     <classes>
-      <class name="com.powerhouse.testcases.PurchasePowersiteSubscription">
+      <class name="com.powerhouse.testcases.RegistrationAndLogin">
         <methods>
-          <include name="beforeMethod"/>
+          <include name="loginPowerhouse"/>
+          <include name="tearDown"/>
           <include name="beforeClass"/>
         </methods>
-      </class> <!-- com.powerhouse.testcases.PurchasePowersiteSubscription -->
-      <class name="com.powerhouse.testcases.ActiveCampaignPurchase">
-        <methods>
-          <include name="setUp"/>
-          <include name="f"/>
-        </methods>
-      </class> <!-- com.powerhouse.testcases.ActiveCampaignPurchase -->
-      <class name="com.powerhouse.testcases.PowerSiteUpgradeGold">
-        <methods>
-          <include name="afterClass"/>
-          <include name="setUp"/>
-        </methods>
-      </class> <!-- com.powerhouse.testcases.PowerSiteUpgradeGold -->
-      <class name="com.powerhouse.testcases.LoginWithDifferentOption">
-        <methods>
-          <include name="executeAfterMethod"/>
-          <include name="setUp"/>
-        </methods>
-      </class> <!-- com.powerhouse.testcases.LoginWithDifferentOption -->
+      </class> <!-- com.powerhouse.testcases.RegistrationAndLogin -->
     </classes>
-  </test> <!-- power house with firefox(failed) -->
-  <test name="power house PowerSiteUpgradeGold(failed)" parallel="tests">
-    <parameter name="browser" value="chrome"/>
-    <classes>
-      <class name="com.powerhouse.testcases.PurchasePowersiteSubscription">
-        <methods>
-          <include name="beforeMethod"/>
-          <include name="beforeClass"/>
-        </methods>
-      </class> <!-- com.powerhouse.testcases.PurchasePowersiteSubscription -->
-      <class name="com.powerhouse.testcases.ActiveCampaignPurchase">
-        <methods>
-          <include name="setUp"/>
-        </methods>
-      </class> <!-- com.powerhouse.testcases.ActiveCampaignPurchase -->
-      <class name="com.powerhouse.testcases.PowerSiteUpgradeGold">
-        <methods>
-          <include name="afterClass"/>
-          <include name="f"/>
-          <include name="setUp"/>
-        </methods>
-      </class> <!-- com.powerhouse.testcases.PowerSiteUpgradeGold -->
-      <class name="com.powerhouse.testcases.LoginWithDifferentOption">
-        <methods>
-          <include name="executeAfterMethod"/>
-          <include name="setUp"/>
-        </methods>
-      </class> <!-- com.powerhouse.testcases.LoginWithDifferentOption -->
-    </classes>
-  </test> <!-- power house PowerSiteUpgradeGold(failed) -->
-  <test name="power house LoginWithDifferentOption(failed)" parallel="tests">
-    <parameter name="browser" value="chrome"/>
-    <classes>
-      <class name="com.powerhouse.testcases.PurchasePowersiteSubscription">
-        <methods>
-          <include name="beforeMethod"/>
-          <include name="beforeClass"/>
-        </methods>
-      </class> <!-- com.powerhouse.testcases.PurchasePowersiteSubscription -->
-      <class name="com.powerhouse.testcases.ActiveCampaignPurchase">
-        <methods>
-          <include name="setUp"/>
-        </methods>
-      </class> <!-- com.powerhouse.testcases.ActiveCampaignPurchase -->
-      <class name="com.powerhouse.testcases.PowerSiteUpgradeGold">
-        <methods>
-          <include name="afterClass"/>
-          <include name="setUp"/>
-        </methods>
-      </class> <!-- com.powerhouse.testcases.PowerSiteUpgradeGold -->
-      <class name="com.powerhouse.testcases.LoginWithDifferentOption">
-        <methods>
-          <include name="google"/>
-          <include name="executeAfterMethod"/>
-          <include name="setUp"/>
-          <include name="faceBook"/>
-        </methods>
-      </class> <!-- com.powerhouse.testcases.LoginWithDifferentOption -->
-    </classes>
-  </test> <!-- power house LoginWithDifferentOption(failed) -->
-  <test name="power house PurchasePowersiteSubscription purchase(failed)" parallel="tests">
-    <parameter name="browser" value="chrome"/>
-    <classes>
-      <class name="com.powerhouse.testcases.PurchasePowersiteSubscription">
-        <methods>
-          <include name="beforeMethod"/>
-          <include name="beforeClass"/>
-          <include name="purchsepowersite"/>
-        </methods>
-      </class> <!-- com.powerhouse.testcases.PurchasePowersiteSubscription -->
-      <class name="com.powerhouse.testcases.ActiveCampaignPurchase">
-        <methods>
-          <include name="setUp"/>
-        </methods>
-      </class> <!-- com.powerhouse.testcases.ActiveCampaignPurchase -->
-      <class name="com.powerhouse.testcases.PowerSiteUpgradeGold">
-        <methods>
-          <include name="afterClass"/>
-          <include name="setUp"/>
-        </methods>
-      </class> <!-- com.powerhouse.testcases.PowerSiteUpgradeGold -->
-      <class name="com.powerhouse.testcases.LoginWithDifferentOption">
-        <methods>
-          <include name="executeAfterMethod"/>
-          <include name="setUp"/>
-        </methods>
-      </class> <!-- com.powerhouse.testcases.LoginWithDifferentOption -->
-    </classes>
-  </test> <!-- power house PurchasePowersiteSubscription purchase(failed) -->
-</suite> <!-- Failed suite [Parallel Tests] -->
+  </test> <!-- Default test(failed) -->
+</suite> <!-- Failed suite [Default suite] -->

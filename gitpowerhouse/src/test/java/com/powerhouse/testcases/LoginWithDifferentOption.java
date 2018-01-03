@@ -42,12 +42,13 @@ public class LoginWithDifferentOption {
 		
 			 
 		}else if(browser.equals("chrome")){
-			System.setProperty("webdriver.chrome.driver", fs.getAbsolutePath());
+			System.setProperty("webdriver.chrome.driver", "D:\\Softwares\\chromedriver.exe");
 			driver=new ChromeDriver();
+		
 			
 		}
 		hp=new HomePage(driver, test);
-	 driver.get("https://pohostaging.com/");
+	 driver.get("https://app.pohostaging.com/");
 	 driver.manage().window().maximize();
 	driver.manage().timeouts().implicitlyWait(15,TimeUnit.SECONDS);
 	}
@@ -55,16 +56,16 @@ public class LoginWithDifferentOption {
 //	public void executeBeforeMethod(){
 //		
 //	}
-  @Test
+  @Test(enabled=false)
   public void google() throws InterruptedException {
-	 hp.logInWithGoogle("suryakanta@abacies.com", "8867117363");
-	 ExplictyWait.waitForTheVisiilty(driver, 15, hp.logOut());;
+	 hp.logInWithGoogle("suryakanta@abacies.com", "jfjdjero");
+	 ExplictyWait.waitForTheVisiilty(driver, 15, hp.logOut());
 	
   }
   @Test
   public void faceBook(){
-	  hp.loginWithFaceBook("surya.east09@gmail.com", "suryakanta939");
-	  ExplictyWait.waitForTheVisiilty(driver, 15, hp.logOut());;
+	  hp.loginWithFaceBook("surya.east09@gmail.com", "krlenels");
+	  ExplictyWait.waitForTheVisiilty(driver, 15, hp.logOut());
   }
   @AfterMethod
   public void executeAfterMethod(){
