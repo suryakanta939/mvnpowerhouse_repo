@@ -16,10 +16,12 @@ public class Powersite {
 		this.driver=driver;
 		this.test=test;
 	}
+	
 	public static WebElement dashBoardPowersite(){
 		element=driver.findElement(By.xpath("//a[@id='user-powersites']"));
 		return element;
 	}
+	
 /*click on the powersite*/
 	public static void clickOnPowersite(){
 		dashBoardPowersite().click();

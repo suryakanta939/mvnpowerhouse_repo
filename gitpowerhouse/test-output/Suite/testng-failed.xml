@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Suite]">
+  <parameter name="browser" value="firefox"/>
+  <test name="Test(failed)">
+    <parameter name="browser" value="firefox"/>
+    <classes>
+      <class name="com.powerhouse.testcases.ActiveCampaignPurchase">
+        <methods>
+          <include name="setUp"/>
+          <include name="f"/>
+        </methods>
+      </class> <!-- com.powerhouse.testcases.ActiveCampaignPurchase -->
+    </classes>
+  </test> <!-- Test(failed) -->
+</suite> <!-- Failed suite [Suite] -->
